@@ -1,0 +1,2696 @@
+config:
+    name: testcase description
+    variables: {}
+teststeps:
+-   name: /zhgd_mms/app_information/get_industry_list
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: aac75dd9eaf23a733e513b70b6f2e567
+            _timestamp: '1596608206000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_industry_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 836d642af1fa8e8839e2a0daa5a25772
+            _timestamp: '1596608206000'
+            level: '1'
+            parentid: '0'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_area_tree_list
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: f4fe6c1421e047efed563f582e5c66e3
+            _timestamp: '1596608206000'
+            level: '1'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 06c59597ca69ffabb144e3d13d3d3232
+            _timestamp: '1596608206000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8246a5f78d2e813a8bd5256a4a2110ee
+            _timestamp: '1596608275000'
+            parentid: '37180000001'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 792d353f537718b428874714d203cae2
+            _timestamp: '1596608277000'
+            parentid: '3718000001'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: e4a1d22e345d10b6eb4e9b8a2a8516fd
+            _timestamp: '1596608278000'
+            parentid: '3718000002'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 02d0a951ede1015bc129568d84cce9a3
+            _timestamp: '1596608313000'
+            accountName: luzhi
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d537b4cde8b13e27da5d58506374abea
+            _timestamp: '1596608316000'
+            accountName: luzhi
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_area_tree_list
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: dd72d351d68b2bc385830f6279d26433
+            _timestamp: '1596608326000'
+            level: '2'
+            parentid: '11'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 5e9f008fc2e5c5a7dad05e105357efe7
+            _timestamp: '1596608331000'
+            accountName: luzhi
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d5d68a90b337256b073bd975befd820c
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0101
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 5c1bca1b09e509cfe87d491b0325a5b3
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0102
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d4546610631c18ed984b6d9e774a5ebd
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0103
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 7c4c408940473e6c0b47f9b1f143c2a4
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0104
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d0c77af41564b76fe302222ef2017786
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0105
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 2033bbe5f9dde1c50ad31ba75040a291
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0106
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d2edb86347a13bce833c994102ac3fb4
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0107
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 0134ae2daedf725eb762283db3148c02
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0201
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 3dc9649071e41c8df613f90325f0a6a6
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0202
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 92de52857ec4b0693eea5035051c09d8
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0203
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 166cf10a6b8a21fd5e43936fb9d46367
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0204
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 9062161d01c2817fcb3aa33850555155
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0301
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: c558b7df5dcdd88a36943de15b67369f
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0302
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 74022ec720e145d3fb06ef89044ccf28
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0303
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: dea4de945507020834b10438ff1413bc
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0401
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 7902b0a96df769771c7a49b126dd34d1
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0501
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 838cf96a24749cbcfdeb4943ddc51a5b
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0502
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 9d7b73c77c992b894d741a22c0a1834a
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0503
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: cdc561756a0e53610c9c1391dcab1cc7
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0504
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: e572d13a0a32f7c1be57fcd2a9d7c5db
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0505
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 5c897af6daf5842a454ded6556232133
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0506
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: f5cc60bc4219df8dc418b2953b4a12d3
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0601
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 235551221730bb63b34d1cec84555bda
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0602
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: da19edb89a95d36f12d363a34f4a5341
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0701
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 77e77f96710a834bed389c6228e3c734
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0603
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 762d3f01654d6956c352ded910a47ded
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0702
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 5df5ce4d0080dd1e1fea37db30428dab
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0703
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: c6c40061b2acb6c21c6cafe924068ffa
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0704
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d9432e53788191d06c842244ddeb35f0
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0705
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d4d6900542be928df29a424554154093
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0706
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: aaff17fafce79a5fe0f9d4848f94739e
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0801
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: cb10df6323ce347ccb0a2c8784f67e74
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0802
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 79b04f396ecd3f73b35d5785fbad8f3e
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0803
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: ab043d458eaa98e88cff44cf60baafc9
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0804
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: abf8fb839097f2c513000b66fc5cf9a1
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0901
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 339f3a2b1ca98373e8155ec1630fc320
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0902
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: d8805ccab9dbd0269350997ebe517db3
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0903
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: b3e77ab03e1f5f3883c27d13fc780d4d
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0904
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8b2e58a0bd39a3f6b9f97ab3260532bd
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1001
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8849f71df0263df22ca65a8bf4658364
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1101
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: ad71620f52b52a096b72d50ff52b2179
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1102
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 5445caf77f13bb90bd466a1e8c4cb0fa
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1103
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: ab3e3f9bd91480e1a2c8fe89376e3972
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1201
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 6fc02bfb5dabbf0b88dd225aa5069860
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1202
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: b4622a09b972bc8191e366d13a83473a
+            _timestamp: '1596608331000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1203
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 3d1663b44e1951fab9d8a655d0f5ef81
+            _timestamp: '1596608338000'
+            accountName: luzhi
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 598f51e9b0decf69374503e628ffd255
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0101
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: a4ed4ef39b8a6b9ffe2f403dec10dbd7
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0102
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 90f3ae34f6d90c4f1295135591dee35b
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0103
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 7be6542c9e47cf0a3a0c6d04c73e4929
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0104
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 17e4a3f37c9ff86beb3566c6203d1eed
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0105
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 749ef63aca782867e0d45813c15ae7ee
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0106
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: de5a7e92ffc7247ddeba5dc82f4f350d
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0107
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 4deec423c1c2faf01d74f71e037eab5f
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0201
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 7bff976a63b0ee3ecc860b381628d23f
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0202
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: e657de1e8a4c0f48dc31914b0aa93225
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0203
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: bbedb4a687e0db92ab57c1345142495c
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0204
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 1ed5c5286a900ed36abb5364639af6f3
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0301
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 2d8da2ef443f9b9601ca925d71a56300
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0302
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 1b59c08ce5106a540b53708aef33d018
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0303
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 482f770e5c65c491e81cb5bf2b3cf672
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0401
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 11993c0cd164d3e5d323abbefa824f0d
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0501
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 0624979d8a1e44e9426125829579d773
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0502
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: b09adf19a036f9766118cde0643debf0
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0503
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 1cd42d5952aeda725286a0ebd759b9e8
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0504
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: e88560e346caf67bf39b50d22fa61cd7
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0506
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 94bb91ddcf82eefcb76a89af50321b5e
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0505
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: f2a3c0da630be91f8f4c04f878c4a745
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0601
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: a2550adc07bac575884aa3a3f4bb4b65
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0602
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: a45d333765a7a591b435bdbd34c3817b
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0603
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 99945e66fdef232722781f04ebe0c113
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0701
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 179a1a3a59fe7b2a4f0fb9dc546ef5a4
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0702
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: df6de7be166e659c433ed48a3b2c2d47
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0703
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 2af3a6834d50ee5794b4f7b3249d10f7
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0705
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 9eff877eb9603ae5bdfcd9a4e79619fd
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0704
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: effdaa831d95b6f64b40964da816110f
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0706
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 544f2ec9adbb115f9acaf683c5880636
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0801
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 1e9b5314d417b4de30d1d5963cb36939
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0802
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8bc994d64a41263b7bf42d0ae528152d
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0803
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 3c648f37a451bc383b44935c1d22973e
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0804
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: fa96318449a06c0010113a2dc3609973
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0901
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 18ac0264326b4c9d7848b553bbba97bb
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0902
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: fd88ddf003821d09393aba4a4a1c1a47
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0903
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 47888c199e64e3c0e569e23d21e8c17a
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0904
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 0521c72fb1dbbbb41bad4abe94925e15
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1001
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8dacd0cf3b5fd8603c74e71f1b78dd99
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1101
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 4e0a7bd7791dcebe3559b1df16d86bde
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1102
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 5a6ad3d24d349fbff081a84f135a7348
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1103
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 04d148f50e83c70def97a81d73be3f5b
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1201
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: ab637fb04e4f79f7f8af256c3d52e67a
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1202
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/recommend/get_content_by_position
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 9395e2fd5c7605352d2def1ea04286f1
+            _timestamp: '1596608338000'
+            appInformationKey: platform
+            operators: '2'
+            recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1203
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8a984b520a3b1cc6aac01b075a1b379a
+            _timestamp: '1596608341000'
+            accountName: luzhi
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/save_appinformation
+    request:
+        data:
+            _sign: be90e145405cfdd9eaf52d93a8568d3f
+            _timestamp: '1596608341000'
+            accountCount: '10'
+            accountName: luzhi
+            checkKeys[0]: '11'
+            cityIds: '["37180000001","3718000001","3718000002","3718000111"]'
+            classifyKey: ''
+            county: 6号楼1单元2002
+            dateTimeQuery: '2020-08-31 00:00:00'
+            email: hsjds@ihicon.com
+            fullName: 录制公司
+            industryKey: e15ca55c8b9d4584a7ec18e253f073e9
+            linkman: zhao
+            mobile: '77778888'
+            operatorsDisp[0]: '2'
+            phone: '18654569875'
+            recommendPosition: '{"cmcc":["YD846b11f1e3db5c01503f6f6fCM0201","YD846b11f1e3db5c01503f6f6fCM0202","YD846b11f1e3db5c01503f6f6fCM0203","YD846b11f1e3db5c01503f6f6fCM0204"],"cucc":[],"ctcc":[]}'
+            shortName: 录制客户
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/app_information/save_appinformation
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
