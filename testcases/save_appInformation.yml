@@ -1,0 +1,45 @@
+config:
+    name: testcase description
+    variables: {}
+    verify: False
+
+teststeps:
+-   name: login system
+    testcase: testcases/login.yml
+    extract:
+      - get_token
+      
+-   name: 创建/保存用户
+    request:
+        data:
+            _sign: be90e145405cfdd9eaf52d93a8568d3f
+            _timestamp: '1596608341000'
+            accountCount: '10'
+            accountName: luzhi${name_timestamp}
+            checkKeys[0]: '11'
+            cityIds: '["37180000001","3718000001","3718000002","3718000111"]'
+            classifyKey: ''
+            county: 6号楼1单元2002
+            dateTimeQuery: '2020-08-31 00:00:00'
+            email: ${num_timestamp}@ihicon.com
+            fullName: 录制公司
+            industryKey: e15ca55c8b9d4584a7ec18e253f073e9
+            linkman: zhao
+            mobile: '${num_timestamp}'
+            operatorsDisp[0]: '2'
+            phone: '${num_timestamp}'
+            recommendPosition: '{"cmcc":["YD846b11f1e3db5c01503f6f6fCM0201","YD846b11f1e3db5c01503f6f6fCM0202","YD846b11f1e3db5c01503f6f6fCM0203","YD846b11f1e3db5c01503f6f6fCM0204"],"cucc":[],"ctcc":[]}'
+            shortName: 录制客户
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/app_information/save_appinformation
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]

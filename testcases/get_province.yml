@@ -1,0 +1,87 @@
+config:
+    name: testcase description
+    variables: {}
+    verify: False
+
+teststeps:
+-   name: login system
+    testcase: testcases/login.yml
+    extract:
+      - get_token
+
+-   name: 获取一级地区
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 836d642af1fa8e8839e2a0daa5a25772
+            _timestamp: '1596608206000'
+            level: '1'
+            parentid: '0'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 获取二级地区，需要parientId
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 8246a5f78d2e813a8bd5256a4a2110ee
+            _timestamp: '1596608275000'
+            parentid: '37180000001'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 获取三级地区，需要parientId
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 792d353f537718b428874714d203cae2
+            _timestamp: '1596608277000'
+            parentid: '3718000001'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+        
+-   name: 获取四级地区，需要parientId
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: e4a1d22e345d10b6eb4e9b8a2a8516fd
+            _timestamp: '1596608278000'
+            parentid: '3718000002'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]

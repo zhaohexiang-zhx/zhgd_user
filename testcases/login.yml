@@ -1,0 +1,31 @@
+config:
+    name: testcase description
+    #若没有变量，后面需要加花括号，不然会报错
+    variables: {}
+    verify: False
+    #一个testcase中导出，再需要的testcase中,使用extract直接引用变量即可
+    export:
+      - get_token
+teststeps:
+-   name: login system
+    request:
+        data:
+            _sign: bd49d5b78c71d2268c181e9c70ba9233
+            _timestamp: '1596009876000'
+            loginName: zhaohexiang
+            password: 72732414d750775c1eb0b5b915b3561b
+            terminal: pc
+            token: ''
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/user/login
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+    extract:
+        get_token: content.results.data.token
