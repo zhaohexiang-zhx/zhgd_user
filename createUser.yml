@@ -1,8 +1,35 @@
 config:
     name: testcase description
-    variables: {}
+    variables: 
+        num_timestamp: ${get_timestamp}
+        name_timestamp: ${get_timestamp1}
+    verify: False
+
 teststeps:
--   name: /zhgd_mms/app_information/get_industry_list
+-   name: login system
+    request:
+        data:
+            _sign: bd49d5b78c71d2268c181e9c70ba9233
+            _timestamp: '1596009876000'
+            loginName: zhaohexiang
+            password: 72732414d750775c1eb0b5b915b3561b
+            terminal: pc
+            token: ''
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/user/login
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+    extract:
+        get_token: content.results.data.token
+
+-   name: 获取行业列表
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -12,20 +39,15 @@ teststeps:
             _sign: aac75dd9eaf23a733e513b70b6f2e567
             _timestamp: '1596608206000'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_industry_list
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/get_province_treelist
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 获取一级地区
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -37,20 +59,15 @@ teststeps:
             level: '1'
             parentid: '0'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/get_area_tree_list
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 获取运营区域
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -61,19 +78,13 @@ teststeps:
             _timestamp: '1596608206000'
             level: '1'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/app_information/get_province_treelist
     request:
         headers:
@@ -84,20 +95,14 @@ teststeps:
             _sign: 06c59597ca69ffabb144e3d13d3d3232
             _timestamp: '1596608206000'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/get_province_treelist
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+-   name: 获取二级地区，需要parientId
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -108,20 +113,14 @@ teststeps:
             _timestamp: '1596608275000'
             parentid: '37180000001'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/get_province_treelist
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+-   name: 获取三级地区，需要parientId
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -132,20 +131,14 @@ teststeps:
             _timestamp: '1596608277000'
             parentid: '3718000001'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/get_province_treelist
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+-   name: 获取四级地区，需要parientId
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -156,20 +149,15 @@ teststeps:
             _timestamp: '1596608278000'
             parentid: '3718000002'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/check_account_name
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 校验账号
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -180,44 +168,15 @@ teststeps:
             _timestamp: '1596608313000'
             accountName: luzhi
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/check_account_name
-    request:
-        headers:
-            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
-        method: GET
-        params:
-            _sign: d537b4cde8b13e27da5d58506374abea
-            _timestamp: '1596608316000'
-            accountName: luzhi
-            terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
-            v: ''
-        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
-    validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/get_area_tree_list
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 获取下一级运营区域，parentid
     request:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
@@ -229,43 +188,31 @@ teststeps:
             level: '2'
             parentid: '11'
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/check_account_name
-    request:
-        headers:
-            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
-                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
-        method: GET
-        params:
-            _sign: 5e9f008fc2e5c5a7dad05e105357efe7
-            _timestamp: '1596608331000'
-            accountName: luzhi
-            terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
-            v: ''
-        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
-    validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+# -   name: /zhgd_mms/app_information/check_account_name
+#     request:
+#         headers:
+#             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+#                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+#         method: GET
+#         params:
+#             _sign: 5e9f008fc2e5c5a7dad05e105357efe7
+#             _timestamp: '1596608331000'
+#             accountName: luzhi
+#             terminal: pc
+#             token: ${get_token}
+#             v: ''
+#         url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+#     validate:
+#         - eq: [status_code, 200]
+#         - eq: [headers.Content-Type, application/json]
+#         - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -279,19 +226,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0101
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -305,19 +246,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0102
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -331,19 +266,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0103
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -357,19 +286,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0104
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -383,19 +306,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0105
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -409,19 +326,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0106
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -435,19 +346,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0107
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -461,19 +366,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0201
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -487,19 +386,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0202
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -513,19 +406,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0203
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -539,19 +426,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0204
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -565,19 +446,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0301
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -591,19 +466,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0302
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -617,19 +486,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0303
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -643,19 +506,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0401
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -669,19 +526,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0501
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -695,19 +546,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0502
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -721,19 +566,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0503
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -747,19 +586,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0504
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -773,19 +606,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0505
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -799,19 +626,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0506
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -825,19 +646,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0601
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -851,19 +666,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0602
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -877,19 +686,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0701
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -903,19 +706,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0603
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -929,19 +726,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0702
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -955,19 +746,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0703
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -981,19 +766,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0704
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1007,19 +786,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0705
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1033,19 +806,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0706
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1059,19 +826,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0801
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1085,19 +846,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0802
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1111,19 +866,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0803
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1137,19 +886,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0804
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1163,19 +906,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0901
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1189,19 +926,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0902
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1215,19 +946,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0903
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1241,19 +966,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0904
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1267,19 +986,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1001
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1293,19 +1006,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1101
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1319,19 +1026,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1102
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1345,19 +1046,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1103
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1371,19 +1066,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1201
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1397,19 +1086,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1202
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1423,19 +1106,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1203
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/app_information/check_account_name
     request:
         headers:
@@ -1447,19 +1124,13 @@ teststeps:
             _timestamp: '1596608338000'
             accountName: luzhi
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1473,19 +1144,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0101
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1499,19 +1164,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0102
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1525,19 +1184,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0103
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1551,19 +1204,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0104
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1577,19 +1224,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0105
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1603,19 +1244,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0106
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1629,19 +1264,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0107
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1655,19 +1284,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0201
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1681,19 +1304,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0202
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1707,19 +1324,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0203
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1733,19 +1344,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0204
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1759,19 +1364,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0301
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1785,19 +1384,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0302
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1811,19 +1404,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0303
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1837,19 +1424,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0401
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1863,19 +1444,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0501
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1889,19 +1464,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0502
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1915,19 +1484,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0503
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1941,19 +1504,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0504
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1967,19 +1524,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0506
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -1993,19 +1544,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0505
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2019,19 +1564,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0601
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2045,19 +1584,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0602
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2071,19 +1604,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0603
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2097,19 +1624,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0701
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2123,19 +1644,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0702
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2149,19 +1664,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0703
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2175,19 +1684,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0705
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2201,19 +1704,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0704
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2227,19 +1724,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0706
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2253,19 +1744,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0801
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2279,19 +1764,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0802
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2305,19 +1784,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0803
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2331,19 +1804,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0804
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2357,19 +1824,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0901
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2383,19 +1844,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0902
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2409,19 +1864,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0903
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2435,19 +1884,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM0904
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2461,19 +1904,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1001
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2487,19 +1924,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1101
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2513,19 +1944,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1102
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2539,19 +1964,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1103
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2565,19 +1984,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1201
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2591,19 +2004,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1202
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/recommend/get_content_by_position
     request:
         headers:
@@ -2617,19 +2024,13 @@ teststeps:
             operators: '2'
             recommenPositionKey: YD846b11f1e3db5c01503f6f6fCM1203
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/recommend/get_content_by_position
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
 -   name: /zhgd_mms/app_information/check_account_name
     request:
         headers:
@@ -2641,42 +2042,37 @@ teststeps:
             _timestamp: '1596608341000'
             accountName: luzhi
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
--   name: /zhgd_mms/app_information/save_appinformation
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+
+-   name: 创建/保存用户
     request:
         data:
             _sign: be90e145405cfdd9eaf52d93a8568d3f
             _timestamp: '1596608341000'
             accountCount: '10'
-            accountName: luzhi
+            accountName: luzhi${name_timestamp}
             checkKeys[0]: '11'
             cityIds: '["37180000001","3718000001","3718000002","3718000111"]'
             classifyKey: ''
             county: 6号楼1单元2002
             dateTimeQuery: '2020-08-31 00:00:00'
-            email: hsjds@ihicon.com
+            email: ${num_timestamp}@ihicon.com
             fullName: 录制公司
             industryKey: e15ca55c8b9d4584a7ec18e253f073e9
             linkman: zhao
-            mobile: '77778888'
+            mobile: '${num_timestamp}'
             operatorsDisp[0]: '2'
-            phone: '18654569875'
+            phone: '${num_timestamp}'
             recommendPosition: '{"cmcc":["YD846b11f1e3db5c01503f6f6fCM0201","YD846b11f1e3db5c01503f6f6fCM0202","YD846b11f1e3db5c01503f6f6fCM0203","YD846b11f1e3db5c01503f6f6fCM0204"],"cucc":[],"ctcc":[]}'
             shortName: 录制客户
             terminal: pc
-            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5d7c9d275edcd5e6a488238f5cdba5f3faa1348b60603a0613e6813b54e3e619e1775703b874c6441fc9b304f8fcee20ca76b004b2a2c720e4bb2ce714991a83a6b14ac8fcae431e87f0d236437580eacc
+            token: ${get_token}
             v: ''
         headers:
             Content-Type: application/x-www-form-urlencoded;charset=UTF-8
@@ -2685,12 +2081,6 @@ teststeps:
         method: POST
         url: http://10.23.190.107/zhgd_mms/app_information/save_appinformation
     validate:
-    -   eq:
-        - status_code
-        - 200
-    -   eq:
-        - headers.Content-Type
-        - application/json
-    -   eq:
-        - content.code
-        - 200
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
