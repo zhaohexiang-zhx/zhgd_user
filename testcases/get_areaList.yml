@@ -1,0 +1,150 @@
+config:
+    name: testcase description
+    variables: {}
+    verify: False
+    
+teststeps:
+-   name: login system
+    testcase: testcases/login.yml
+    extract:
+      - get_token
+
+-   name: 获取一级区域-创建二级客户
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 57735e52c60338a8e0e168c9753b1c0b
+            _timestamp: '1597051669000'
+            level: '1'
+            platformType: '1'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+    extract: 
+        parientid_1: content.results.data.appAreaTree.0.key
+
+-   name: 获取二级区域-创建二级客户
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 6bcb325afaba1c37162836e7a702d9fe
+            _timestamp: '1597051669000'
+            level: '2'
+            parentid: ${parientid_1}
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取一级区域-编辑二级客户
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 57735e52c60338a8e0e168c9753b1c0b
+            _timestamp: '1597051669000'
+            appInformationKey: dcc4271ca5d74d098d1f07b0a45ed399
+            level: '1'
+            parentAppInformationKey: platform
+            platformType: '1'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+    extract: 
+        parientid_1_bj: content.results.data.appAreaTree.0.key
+-   name: 获取二级区域-编辑二级客户
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: 6bcb325afaba1c37162836e7a702d9fe
+            _timestamp: '1597051669000'
+            appInformationKey: dcc4271ca5d74d098d1f07b0a45ed399
+            level: '2'
+            parentAppInformationKey: platform
+            parentid: ${parientid_1_bj}
+            platformType: '1'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+
+# -   name: 获取三级区域
+#     request:
+#         headers:
+#             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+#                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+#         method: GET
+#         params:
+#             _sign: 2c311539b0de8934be85b1e7c9a19de3
+#             _timestamp: '1597051669000'
+#             appInformationKey: dcc4271ca5d74d098d1f07b0a45ed399
+#             level: '3'
+#             parentAppInformationKey: platform
+#             parentid: '371102000000'
+#             platformType: '1'
+#             terminal: pc
+#             token: ${get_token}
+#             v: ''
+#         url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+#     validate:
+#     -   eq:
+#         - status_code
+#         - 200
+#     -   eq:
+#         - headers.Content-Type
+#         - application/json
+#     -   eq:
+#         - content.code
+#         - 200

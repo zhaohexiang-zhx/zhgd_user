@@ -16,3 +16,15 @@ testcases:
     testcase: path/to/demo_testcase.yml
     variables:
         device_sn: $device_sn
+
+
+# config:
+#     name: 行业列表
+
+# testcases:
+# -   name: $title
+#     testcase: testcases/get_industry.yml
+#     parameters:
+#         - title-p-s-status:
+#               - ["获取第一页数据", 1, 1, 200]
+#               - ["获取第二页数据", 2, 1, 200]
