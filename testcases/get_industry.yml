@@ -37,4 +37,4 @@ teststeps:
         - eq: [content.code, 200]
         - eq: [content.results.msg, "成功"]
     extract:
-        get_industryKey: content.results.data.[0].value
+        get_industryKey: content.results.data.0.value

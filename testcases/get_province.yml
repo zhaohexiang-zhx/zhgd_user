@@ -3,7 +3,10 @@ config:
     variables: {}
     verify: False
     export:
-        get_cityIds: ["parientid_1", "parientid_2", "parientid_3", "parientid_4"]
+        - parientid_1
+        - parientid_2
+        - parientid_3
+        - parientid_4
 teststeps:
 -   name: login system
     testcase: testcases/login.yml

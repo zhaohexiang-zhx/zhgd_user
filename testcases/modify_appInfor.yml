@@ -1,0 +1,54 @@
+config:
+    name: testcase description
+    variables: {}
+teststeps:
+-   name: /zhgd_mms/app_information/modify_appinformation
+    request:
+        data:
+            _sign: 421b598dac1ae234caa37fb342dce7cf
+            _timestamp: '1597042725000'
+            accountCount: '10'
+            accountName: ceshi
+            appInformationKey: a389070741234b179973c1a409d24b13
+            checkKeys[0]: '370602000000'
+            checkKeys[1]: '370611000000'
+            checkKeys[2]: '370682000000'
+            checkKeys[3]: '370683000000'
+            checkKeys[4]: '370684000000'
+            checkKeys[5]: '370685000000'
+            checkKeys[6]: '370686000000'
+            checkKeys[7]: '370687000000'
+            checkKeys[8]: '370600000000'
+            cityIds: '["370100000000","370102000000","370102001000","370102001002"]'
+            classifyKey: ''
+            county: '32'
+            dateTimeQuery: '2021-07-01 00:00:00'
+            email: jdklsl@163.com
+            fullName: 二级客户
+            industryKey: 86dff3fd926c492197737f3849dc62ee
+            linkman: zhao
+            mobile: '44445555'
+            operatorsDisp[0]: '8'
+            phone: '15555555555'
+            platformType: '1'
+            recommendPosition: '{"cmcc":["YD846b11f1e3db5c01503f6f6fCM0105","YD846b11f1e3db5c01503f6f6fCM0107","YD846b11f1e3db5c01503f6f6fCM0103","YD846b11f1e3db5c01503f6f6fCM0104","YD846b11f1e3db5c01503f6f6fCM0101","YD846b11f1e3db5c01503f6f6fCM0102","YD846b11f1e3db5c01503f6f6fCM0106"],"cucc":["LT846b11f1e3db5c01503f6f6fCU0107","LT846b11f1e3db5c01503f6f6fCU0108","LT846b11f1e3db5c01503f6f6fCU0109","LT846b11f1e3db5c01503f6f6fCU0110"],"ctcc":["DX846b11f1e3db5c01503f6f6fCT0204","DX846b11f1e3db5c01503f6f6fCT0202","DX846b11f1e3db5c01503f6f6fCT0203","DX846b11f1e3db5c01503f6f6fCT0201"]}'
+            shortName: 测试二级客户
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3c6965a91b1bace5de6768c0761518b871a6b21600014268d32593c1272f6f0322ee5b2b4ab0233f805725439af44408d998ab6ffad7fc06fb4780c9f40b543b9200fd40a6549d0c3e24085887038ce04c05b3a7780571836
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/app_information/modify_appinformation
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
