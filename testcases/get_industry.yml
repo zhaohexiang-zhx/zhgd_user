@@ -1,7 +1,8 @@
 config:
     name: testcase description
     variables: 
-        get_cookie: ${get_cookie()}
+        # get_cookie: ${get_cookie()}
+        get_token: ${get_token()}
     verify: False
     export: 
         - get_industryKey
@@ -25,14 +26,14 @@ teststeps:
         headers:
             User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
-            Cookie: ${get_cookie}
+            # Cookie: ${get_cookie}
         method: GET
-        # params:
-        #     _sign: aac75dd9eaf23a733e513b70b6f2e567
-        #     _timestamp: '1596608206000'
-        #     terminal: pc
-        #     token: ${get_token}
-        #     v: ''
+        params:
+            _sign: aac75dd9eaf23a733e513b70b6f2e567
+            _timestamp: '1596608206000'
+            terminal: pc
+            token: ${get_token}
+            v: ''
         url: http://10.23.190.107/zhgd_mms/app_information/get_industry_list
     validate:
         - eq: [status_code, 200]

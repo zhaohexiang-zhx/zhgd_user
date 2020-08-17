@@ -1,6 +1,7 @@
 config:
     name: testcase description
-    variables: {}
+    variables: 
+        get_token: ${get_token()}
     verify: False
     export:
         - parientid_1
@@ -8,10 +9,10 @@ config:
         - parientid_3
         - parientid_4
 teststeps:
--   name: login system
-    testcase: testcases/login.yml
-    extract:
-      - get_token
+# -   name: login system
+#     testcase: testcases/login.yml
+#     extract:
+#       - get_token
 
 -   name: 获取一级地区
     request:
@@ -20,10 +21,10 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
-            _sign: 836d642af1fa8e8839e2a0daa5a25772
-            _timestamp: '1596608206000'
             level: '1'
             parentid: '0'
+            _sign: 836d642af1fa8e8839e2a0daa5a25772
+            _timestamp: '1596608206000'
             terminal: pc
             token: ${get_token}
             v: ''
@@ -42,9 +43,9 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
+            parentid: ${parientid_1}
             _sign: 8246a5f78d2e813a8bd5256a4a2110ee
             _timestamp: '1596608275000'
-            parentid: ${parientid_1}
             terminal: pc
             token: ${get_token}
             v: ''
@@ -63,9 +64,9 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
+            parentid: ${parientid_2}
             _sign: 792d353f537718b428874714d203cae2
             _timestamp: '1596608277000'
-            parentid: ${parientid_2}
             terminal: pc
             token: ${get_token}
             v: ''
@@ -84,9 +85,9 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
+            parentid: ${parientid_3}
             _sign: e4a1d22e345d10b6eb4e9b8a2a8516fd
             _timestamp: '1596608278000'
-            parentid: ${parientid_3}
             terminal: pc
             token: ${get_token}
             v: ''

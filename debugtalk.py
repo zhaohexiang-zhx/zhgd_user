@@ -1,3 +1,4 @@
+# encoding: utf-8
 
 import time
 import requests
@@ -5,15 +6,16 @@ import requests
 def sleep(n_secs):
     time.sleep(n_secs)
 
-#11位
+# 11位
 def get_timestamp():
     return str(int(time.time() * 10))  
 
-#5位
+# 5位
 def get_timestamp1():
     return str(time.time()).replace(".", "")[5:10]
 
-def get_cookie(username="zhaohexiang", password="123456"):
+# 登录并获取token
+def get_token(username="zhaohexiang1", password="72732414d750775c1eb0b5b915b3561b"):
     url = "http://10.23.190.107/zhgd_mms/user/login"
     headers = {
         "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8",
@@ -28,14 +30,28 @@ def get_cookie(username="zhaohexiang", password="123456"):
         "token": '',
         "v": ''
     }
-    res = requests.post(url, headers=headers, data=body)
+    r = requests.post(url, headers=headers, data=body)
     try:
-        sign = res.json()["login_info"]["sign"]
+        # 获取token的方法：["一级"]["二级"]["..."]
+        return_token = r.json()["results"]["data"]["token"]
     except:
-        sign = ""
-    cookie = "{}={}".format(username, sign)
-    return cookie
+        print("没取到token \n %s" % r.text)
+        return_token = ''
+    return return_token
 
-if __name__ == '__main__':
-    cookie = get_cookie()
-    print(cookie)
+if __name__ == "__main__":
+    return_token = get_token()
+    print(return_token)
+
+
+#     res = requests.post(url, headers=headers, data=body)
+#     try:
+#         sign = res.json()["login_info"]["sign"]
+#     except:
+#         sign = ""
+#     cookie = "{}={}".format(username, sign)
+#     return cookie
+
+# if __name__ == '__main__':
+#     cookie = get_cookie()
+#     print(cookie)
