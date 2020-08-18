@@ -1,0 +1,30 @@
+config:
+    name: testcase description
+    variables: 
+        get_token: ${get_token1()}
+    verify: False
+    export: 
+        - get_industryKey_3
+
+teststeps:
+
+-   name: 获取行业列表
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+        method: GET
+        params:
+            _sign: aac75dd9eaf23a733e513b70b6f2e567
+            _timestamp: '1596608206000'
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_industry_list
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+        - eq: [content.results.msg, "成功"]
+    extract:
+        get_industryKey_3: content.results.data.0.value

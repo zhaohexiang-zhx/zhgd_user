@@ -1,0 +1,408 @@
+config:
+    name: testcase description
+    variables: {}
+teststeps:
+-   name: /zhgd_mms/app_information/get_appInformation_cnt
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: fec65d9b3fb8cea88bbbbb54b9753838
+            _timestamp: '1597720624000'
+            accountCount: '10'
+            parentAppInformationKey: a389070741234b179973c1a409d24b13
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_appInformation_cnt
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取行业列表
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 8ddcb1bc9e1bfa773672dc2152d466d8
+            _timestamp: '1597720624000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_industry_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取所在地区-一级
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 0b3e558c0f18a3ff53bf2419a96f377c
+            _timestamp: '1597720624000'
+            level: '1'
+            parentid: '0'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取运营区域-一级
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 1e545a9248c6b9c1c312152034f11ef2
+            _timestamp: '1597720624000'
+            level: '1'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取客户组
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 3074de9d84bda30dc2854770dc804303
+            _timestamp: '1597720624000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            type: '1'
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_classify/get_appClassify_select_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: e0ccd12bbd9a882dc7e735ebc7ac1709
+            _timestamp: '1597720624000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取所在地区-二级，需要parientid
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: a59409961e770f419eedd02594c5e146
+            _timestamp: '1597720971000'
+            parentid: '370100000000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取所在地区-三级，需要parientid
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: b6db416cd58c703e07b7e9d1e1fc8e43
+            _timestamp: '1597720971000'
+            parentid: '370102000000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取所在地区-四级，需要parientid
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: f7f942675a64042e3f7a54d864ed6452
+            _timestamp: '1597720971000'
+            parentid: '370102001000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/get_province_treelist
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 0bb6f75826f641e1a52d54f815da6ec5
+            _timestamp: '1597720972000'
+            parentid: '370102002000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_province_treelist
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 2693e2cbcbe5e79329598829f12214e8
+            _timestamp: '1597720982000'
+            accountName: sanjihar
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 2693e2cbcbe5e79329598829f12214e8
+            _timestamp: '1597720982000'
+            accountName: sanjihar
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取运营区域-二级
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 0d73f91eaf8670c55c7cb68b37d5acb2
+            _timestamp: '1597720987000'
+            level: '2'
+            parentid: '370600000000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: 获取运营区域-三级
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 2794cd49ec757fc650071545a234c6dd
+            _timestamp: '1597720988000'
+            level: '3'
+            parentid: '370602000000'
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/get_area_tree_list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/check_account_name
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 2b4b253576a5962109b16799b77577ec
+            _timestamp: '1597720990000'
+            accountName: sanjihar
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_information/check_account_name
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200
+-   name: /zhgd_mms/app_information/save_appinformation
+    request:
+        data:
+            _sign: 536316beb7831759a419adc10cfe85fa
+            _timestamp: '1597720990000'
+            accountCount: '0'
+            accountName: sanjihar
+            checkKeys[0]: '370602003000'
+            checkKeys[1]: '370600000000'
+            checkKeys[2]: '370602000000'
+            cityIds: '["370100000000","370102000000","370102002000","370102002003"]'
+            classifyKey: c9a863c4f9bc4bb785089b32abbd8e1c
+            county: 三级客户生成har
+            dateTimeQuery: '2020-08-31 00:00:00'
+            email: ndjk@ihicon.com
+            fullName: 三级客户生成har
+            industryKey: 86dff3fd926c492197737f3849dc62ee
+            linkman: 三级客户生成har
+            mobile: '44445555'
+            operatorsDisp[0]: '8'
+            phone: '19856565656'
+            recommendPosition: '{"cmcc":[],"cucc":[],"ctcc":[]}'
+            shortName: 三级客户生成har
+            terminal: pc
+            token: d9bd5ef3a3ce488053d264ddc383f7d4a16e927a886b61468c536a8a7580f0e4d87c439ee5952a6d3fb736b0cc47ed348dcf7d7ecdeb58d3178fb72895c536ca15f4c01e83aca87588238f5cdba5f3fa8d71708fdc3415814621a211016a0ab26a4f542e668484d8eaee4e9b5d2ef80b90e95c54ad8c3bf4430832c54328f343e52ae440a288acf7dcd77b2bda52df4a
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/app_information/save_appinformation
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 200

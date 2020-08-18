@@ -7,11 +7,6 @@ config:
     verify: False
 
 teststeps:
-# -   name: 登录
-#     testcase: testcases/login.yml
-#     extract:
-#       - get_token
-
 -   name: 获取所属地区
     testcase: testcases/get_province.yml
     extract:
@@ -46,7 +41,9 @@ teststeps:
             industryKey: ${get_industryKey}
             linkman: zhao
             mobile: ${num_timestamp}
-            operatorsDisp[0]: '2'
+            #运营商归属：0无，2移动,4联通,8电信,6移动联通,10移动电信,12联通电信,14全部
+            #小于等于所属二级客户
+            operatorsDisp[0]: '8'
             phone: ${num_timestamp}
             recommendPosition: '{"cmcc":["YD846b11f1e3db5c01503f6f6fCM0201","YD846b11f1e3db5c01503f6f6fCM0202","YD846b11f1e3db5c01503f6f6fCM0203","YD846b11f1e3db5c01503f6f6fCM0204"],"cucc":[],"ctcc":[]}'
             shortName: 新建${name_timestamp}

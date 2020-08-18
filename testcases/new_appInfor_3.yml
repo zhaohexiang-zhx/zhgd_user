@@ -1,0 +1,65 @@
+config:
+    name: 创建三级客户，所属二级是ceshi_admin
+    variables: 
+        num_timestamp: ${get_timestamp()}
+        name_timestamp: ${get_timestamp1()}
+        get_token: ${get_token1()}
+    verify: False
+teststeps:
+-   name: 获取所属地区
+    testcase: testcases/get_province_3.yml
+    extract:
+      - parientid_1_3
+      - parientid_2_3
+      - parientid_3_3
+      - parientid_4_3
+
+-   name: 获取客户组
+    testcase: testcases/appClassify_3.yml
+    extract: 
+        - appClassify
+
+-   name: 获取行业列表
+    testcase: testcases/get_industry_3.yml
+    extract:
+      - get_industryKey_3
+
+-   name: 新建客户
+    request:
+        data:
+            _sign: 536316beb7831759a419adc10cfe85fa
+            _timestamp: '1597720990000'
+            accountCount: '0'
+            accountName: ${name_timestamp}new3
+            checkKeys[0]: '370687001000'
+            checkKeys[1]: '370600000000'
+            checkKeys[2]: '370687000000'
+            cityIds: '["${parientid_1_3}","${parientid_2_3}","${parientid_3_3}","${parientid_4_3}"]'
+            classifyKey: ${appClassify}
+            county: 6号楼1单元2002
+            dateTimeQuery: '2020-08-31 00:00:00'
+            email: ${num_timestamp}@ihicon.com
+            fullName: ${name_timestamp} company
+            industryKey: ${get_industryKey_3}
+            linkman: ${name_timestamp}zhao
+            mobile: '44445555'
+            #运营商归属：0无，2移动,4联通,8电信,6移动联通,10移动电信,12联通电信,14全部
+            #小于等于所属二级客户
+            operatorsDisp[0]: '8'
+            phone: ${num_timestamp}
+            recommendPosition: '{"cmcc":[],"cucc":[],"ctcc":[]}'
+            shortName: 三级新建${name_timestamp}
+            terminal: pc
+            token: ${get_token}
+            v: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: POST
+        url: http://10.23.190.107/zhgd_mms/app_information/save_appinformation
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+        - ne: [content.results.data, null]

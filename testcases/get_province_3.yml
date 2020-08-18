@@ -1,13 +1,13 @@
 config:
     name: testcase description
     variables: 
-        get_token: ${get_token()}
+        get_token: ${get_token1()}
     verify: False
     export:
-        - parientid_1
-        - parientid_2
-        - parientid_3
-        - parientid_4
+        - parientid_1_3
+        - parientid_2_3
+        - parientid_3_3
+        - parientid_4_3
 teststeps:
 -   name: 获取一级地区
     request:
@@ -29,7 +29,7 @@ teststeps:
         - eq: [headers.Content-Type, application/json]
         - eq: [content.code, 200]
     extract:
-        parientid_1: content.results.data.provinceCityTree.0.key
+        parientid_1_3: content.results.data.provinceCityTree.0.key
 
 -   name: 获取二级地区，需要parientId
     request:
@@ -38,7 +38,7 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
-            parentid: ${parientid_1}
+            parentid: ${parientid_1_3}
             _sign: 8246a5f78d2e813a8bd5256a4a2110ee
             _timestamp: '1596608275000'
             terminal: pc
@@ -50,7 +50,7 @@ teststeps:
         - eq: [headers.Content-Type, application/json]
         - eq: [content.code, 200]
     extract:
-        parientid_2: content.results.data.provinceCityTree.0.key
+        parientid_2_3: content.results.data.provinceCityTree.0.key
 
 -   name: 获取三级地区，需要parientId
     request:
@@ -59,7 +59,7 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
-            parentid: ${parientid_2}
+            parentid: ${parientid_2_3}
             _sign: 792d353f537718b428874714d203cae2
             _timestamp: '1596608277000'
             terminal: pc
@@ -71,7 +71,7 @@ teststeps:
         - eq: [headers.Content-Type, application/json]
         - eq: [content.code, 200]
     extract:
-        parientid_3: content.results.data.provinceCityTree.0.key
+        parientid_3_3: content.results.data.provinceCityTree.0.key
         
 -   name: 获取四级地区，需要parientId
     request:
@@ -80,7 +80,7 @@ teststeps:
                 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
         method: GET
         params:
-            parentid: ${parientid_3}
+            parentid: ${parientid_3_3}
             _sign: e4a1d22e345d10b6eb4e9b8a2a8516fd
             _timestamp: '1596608278000'
             terminal: pc
@@ -92,4 +92,4 @@ teststeps:
         - eq: [headers.Content-Type, application/json]
         - eq: [content.code, 200]
     extract:
-        parientid_4: content.results.data.provinceCityTree.0.key
+        parientid_4_3: content.results.data.provinceCityTree.0.key

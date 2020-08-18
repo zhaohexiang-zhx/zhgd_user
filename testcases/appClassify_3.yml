@@ -1,0 +1,28 @@
+config:
+    name: 客户组
+    variables: 
+        get_token: ${get_token1()}
+    verify: False
+    export:
+        - appClassify
+teststeps:
+-   name: 获取客户组
+    request:
+        headers:
+            User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        method: GET
+        params:
+            _sign: 3074de9d84bda30dc2854770dc804303
+            _timestamp: '1597720624000'
+            terminal: pc
+            token: ${get_token}
+            type: '1'
+            v: ''
+        url: http://10.23.190.107/zhgd_mms/app_classify/get_appClassify_select_list
+    validate:
+        - eq: [status_code, 200]
+        - eq: [headers.Content-Type, application/json]
+        - eq: [content.code, 200]
+    extract:
+        appClassify: content.results.data.0.value
